@@ -115,3 +115,99 @@ print("=== NULL VALUE CHECK AFTER CLEANING & IMPUTATION ===")
 print(df_cleaned.isnull().sum())
 print("\nDataset Shape After Cleaning:", df_cleaned.shape)
 print("Data Types:\n", df_cleaned.dtypes)
+# -------------------------------------------------------------
+# 1. Category Hierarchy Splitting (Levels 1 to 5)
+# -------------------------------------------------------------
+category_split = df_cleaned["category"].astype(str).str.split("|", expand=True)
+
+for i in range(5):
+    col_name = f"category_level_{i+1}"
+    if i in category_split.columns:
+        df_cleaned[col_name] = category_split[i].fillna("Unknown").str.strip()
+    else:
+        df_cleaned[col_name] = "Unknown"
+
+# -------------------------------------------------------------
+# 2. Brand Extraction from product_name
+# -------------------------------------------------------------
+known_brands = [
+    "boAt",
+    "Ambrane",
+    "Portronics",
+    "Wayona",
+    "pTron",
+    "Zoul",
+    "TP-Link",
+    "AmazonBasics",
+    "Belkin",
+    "Duracell",
+    "OnePlus",
+    "Samsung",
+    "LG",
+    "MI",
+    "Fire-Boltt",
+    "Redmi",
+    "TCL",
+    "Acer",
+    "Hisense",
+    "VU",
+    "Kodak",
+]
+
+
+def extract_brand(name):
+    name_str = str(name).strip()
+    # Check against known brand dictionary
+    for brand in known_brands:
+        if brand.lower() in name_str.lower():
+            return brand
+    # Fallback: Use first word of product name if no known brand matches
+    first_word = name_str.split()[0] if len(name_str.split()) > 0 else "Unknown"
+    return first_word
+
+
+df_cleaned["brand"] = df_cleaned["product_name"].apply(extract_brand)
+
+# Identify top brands vs long-tail brands
+top_5_brands = df_cleaned["brand"].value_counts().nlargest(5).index.tolist()
+df_cleaned["is_branded"] = (
+    df_cleaned["brand"].isin(top_5_brands).astype(int)
+)  #[cite: 1]
+
+# -------------------------------------------------------------
+# 3. Text Feature Extraction from about_product
+# -------------------------------------------------------------
+# Word count computation
+df_cleaned["word_count"] = (
+    df_cleaned["about_product"].astype(str).apply(lambda x: len(x.split()))
+)
+
+# Feature count heuristic (comma/pipe/bullet point counts)
+df_cleaned["feature_count"] = (
+    df_cleaned["about_product"]
+    .astype(str)
+    .apply(lambda x: x.count(",") + x.count("|") + x.count(".") + 1)
+)
+
+# Specification density calculation
+df_cleaned["specification_density"] = df_cleaned["feature_count"] / (
+    df_cleaned["word_count"] + 1e-5
+)
+
+# -------------------------------------------------------------
+# Verification
+# -------------------------------------------------------------
+print("Extracted Features Summary:")
+print(
+    df_cleaned[
+        [
+            "brand",
+            "is_branded",
+            "category_level_1",
+            "category_level_2",
+            "word_count",
+            "feature_count",
+            "specification_density",
+        ]
+    ].head()
+)

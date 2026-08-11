@@ -200,3 +200,9 @@ print(f"Raw discounted_price Skew: {df_cleaned['discounted_price'].skew():.2f}")
 print(f"Log discounted_price Skew: {df_cleaned['log_price'].skew():.2f}")
 print(f"Raw rating_count Skew:     {df_cleaned['rating_count'].skew():.2f}")
 print(f"Log popularity_score Skew: {df_cleaned['popularity_score'].skew():.2f}")
+
+# Save your cleaned dataset for subsequent modules
+df_cleaned.to_csv(
+    "D:/Data Science Projects/Property-Rating-Prediction/Data/amazon_cleaned.csv",
+    index=False,
+)

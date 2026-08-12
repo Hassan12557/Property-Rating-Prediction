@@ -25,7 +25,7 @@ os.makedirs("reports/figures", exist_ok=True)
 # -----------------------------------------------------------------------------
 # 1. Load Cleaned Dataset with Explicit Type Hinting
 # -----------------------------------------------------------------------------
-DATA_PATH = "Data/amazon_cleaned.csv"
+DATA_PATH = "D:/Data Science Projects/Property-Rating-Prediction/Data/amazon_cleaned.csv"
 if not os.path.exists(DATA_PATH):
     DATA_PATH = "amazon_cleaned.csv"
 

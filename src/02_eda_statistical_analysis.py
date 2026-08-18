@@ -87,9 +87,9 @@ axes[1].set_title("Rating Boxplot (Outlier Detection)", fontsize=12, fontweight=
 axes[1].set_xlabel("Product Rating")
 
 plt.tight_layout()
-plt.savefig("reports/figures/01_target_distribution.png", dpi=300)
+plt.savefig("Property-Rating_Prediction/reports/figures/01_target_distribution.png", dpi=300)
 plt.close()
-print("Saved: reports/figures/01_target_distribution.png")
+print("Saved: Property-Price-Prediction/reports/figures/01_target_distribution.png")
 
 # -----------------------------------------------------------------------------
 # 3. Correlation Analysis (Pearson & Spearman)

@@ -1,4 +1,4 @@
- FROM python:3.11-slim
+FROM python:3.11-slim
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
@@ -15,6 +15,6 @@ RUN pip install --no-cache-dir --upgrade pip && \
 
 COPY . .
 
-EXPOSE 8501
+EXPOSE 7860
 
-CMD streamlit run src/app.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --server.headless=true
+CMD ["streamlit", "run", "src/app.py", "--server.port=7860", "--server.address=0.0.0.0"]

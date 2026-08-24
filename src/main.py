@@ -70,7 +70,13 @@ class PredictionOutput(BaseModel):
 def health_check():
     return {"status": "ok", "model_loaded": model is not None, "preprocessor_loaded": preprocessor is not None}
 
-
+@app.get("/")
+def read_root():
+    return {
+        "status": "online",
+        "message": "Product Rating Prediction API is running.",
+        "docs_url": "/docs"
+    }
 @app.post("/predict", response_model=PredictionOutput, tags=["Inference"])
 def predict_rating(payload: ProductPredictionInput):
     try:

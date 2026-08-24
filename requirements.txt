@@ -1,5 +1,6 @@
-streamlit>=1.30.0
-requests
+streamlit
+joblib
+scikit-learn
 pandas
 numpy
-plotly
+requests

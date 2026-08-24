@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-FROM ubuntu:latest
-LABEL authors="TDKS"
-
-ENTRYPOINT ["top", "-b"]
-=======
 # Use a lightweight official Python base image
 FROM python:3.11-slim
 
@@ -35,4 +29,3 @@ EXPOSE 8000
 
 # Run FastAPI server binding to 0.0.0.0 inside container
 CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
->>>>>>> 915fb967b6424323cb796bd408be131ad42592da

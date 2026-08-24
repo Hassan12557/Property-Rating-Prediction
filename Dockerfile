@@ -17,5 +17,4 @@ COPY . .
 
 EXPOSE 8501
 
-# If your Streamlit file is named main.py or located in src/, update 'app.py' below
-CMD streamlit run app.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --server.headless=true
+CMD streamlit run src/app.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --server.headless=true

@@ -1,4 +1,4 @@
-# Use a lightweight official Python base image
+ # Use a lightweight official Python base image
 FROM python:3.11-slim
 
 # Prevent Python from writing .pyc files and buffer outputs
@@ -24,8 +24,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
 COPY models/ ./models/
 COPY src/ ./src/
 
-# Expose FastAPI port
+# Expose fallback port
 EXPOSE 8000
 
-# Run FastAPI server binding to 0.0.0.0 inside container
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run FastAPI dynamically binding to the host's allocated $PORT
+CMD ["sh", "-c", "uvicorn src.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

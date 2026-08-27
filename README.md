@@ -9,7 +9,7 @@
 An end-to-end Machine Learning solution designed to predict real estate property ratings based on market metrics, spatial feature density, and pricing structures. The system integrates a trained Machine Learning model with a high-performance **FastAPI microservice** and an intuitive **Streamlit interactive dashboard**.
 ## 🚀 Live Deployment Links
 
-* 🖥️ **Interactive Web App (Streamlit Cloud):** [https://property-rating-prediction.streamlit.app/](https://property-rating-prediction.streamlit.app/)
+* 🖥️ **Interactive Web App (Streamlit Cloud):[** [https://property-rating-prediction.streamlit.app/](https://property-rating-prediction.streamlit.app/)](https://property-rating-prediction-vq3aowxtfkhfp5s5xf2eab.streamlit.app/)
 * ⚙️ **API Documentation & Swagger UI (Back4app):** [https://propertyratingprediction-3xgfmwm0.b4a.run/docs](https://propertyratingprediction-3xgfmwm0.b4a.run/docs)
 * 🟢 **Backend API Health Check Endpoint:** `GET https://propertyratingprediction-3xgfmwm0.b4a.run/`
 ---

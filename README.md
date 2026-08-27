@@ -166,4 +166,9 @@ Role: Data Scientist & Machine Learning Engineer
 Certifications: Google Data Analytics Professional Certificate | Google Advanced Data Analytics | CompTIA Data+
 
 GitHub: @Hassan12557
- 
+
+here is screenshot:
+<img width="1359" height="628" alt="image" src="https://github.com/user-attachments/assets/95af9f34-15be-4011-aa34-05f32ad8cbde" />
+<img width="1366" height="623" alt="image" src="https://github.com/user-attachments/assets/0c9a48f1-694b-4cef-aa9a-0bb2c7db6666" />
+
+

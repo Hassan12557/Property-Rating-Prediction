@@ -7,7 +7,11 @@
 [![Deploy](https://img.shields.io/badge/Deployed-Back4app%20%7C%20Streamlit-blueviolet?style=for-the-badge)](https://propertyratingprediction-3xgfmwm0.b4a.run/docs)
 
 An end-to-end Machine Learning solution designed to predict real estate property ratings based on market metrics, spatial feature density, and pricing structures. The system integrates a trained Machine Learning model with a high-performance **FastAPI microservice** and an intuitive **Streamlit interactive dashboard**.
+## 🚀 Live Deployment Links
 
+* 🖥️ **Interactive Web App (Streamlit Cloud):** [https://property-rating-prediction.streamlit.app/](https://property-rating-prediction.streamlit.app/)
+* ⚙️ **API Documentation & Swagger UI (Back4app):** [https://propertyratingprediction-3xgfmwm0.b4a.run/docs](https://propertyratingprediction-3xgfmwm0.b4a.run/docs)
+* 🟢 **Backend API Health Check Endpoint:** `GET https://propertyratingprediction-3xgfmwm0.b4a.run/`
 ---
 
 ## 📌 Project Overview
